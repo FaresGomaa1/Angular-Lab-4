@@ -1,0 +1,47 @@
+/* not-found.component.css */
+@keyframes zoomIn {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .mt-5 {
+    animation: zoomIn 1s ease forwards;
+  }
+  
+  .btn-primary {
+    animation: rotate 2s infinite linear;
+  }
+  body {
+    background: linear-gradient(to right, #ff0066, #6600cc);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite alternate;
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }

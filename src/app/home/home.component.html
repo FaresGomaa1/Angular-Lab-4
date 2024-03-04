@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 sidebar sidebary">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home/all-products" routerLinkActive="active">All Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home/add-product" routerLinkActive="active">Add Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home/product-details/0" routerLinkActive="active">Product Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home/edit-product/0" routerLinkActive="active">Edit Product</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-9 content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

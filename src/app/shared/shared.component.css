@@ -1,0 +1,10 @@
+section{
+  height: fit-content;
+}
+footer{
+  position: sticky;
+  /* margin-top: 12px; */
+}
+header{
+  position: sticky;
+}

@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4 mb-4" *ngFor="let product of products; let i = index">
+        <div class="card">
+          <img src="{{ product.imageUrl }}" class="card-img-top" alt="Product Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ 'Product ' + product.id }}</h5>
+            <p class="card-text">Name: {{ product.name }}</p>
+            <p class="card-text">Price: {{ product.price }}</p>
+            <p class="card-text">Category: {{ product.category }}</p>
+            <p class="card-text">Stock Quantity: {{ product.stockQuantity }}</p>
+            <a href="#" class="btn btn-primary">View Details</a>
+            <button class="btn btn-danger" (click)="deleteProduct(i)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
