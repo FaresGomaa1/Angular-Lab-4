@@ -1,17 +1,20 @@
-import { StaticProductsService } from './../../service/static-products.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IProduct } from '../../product';
+import { StaticProductsService } from './../../service/static-products.service';
 
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  styleUrls: ['./add-product.component.css'],
 })
 export class AddProductComponent implements OnInit {
   productForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private StaticProductsService: StaticProductsService) {}
+  constructor(
+    private fb: FormBuilder,
+    private staticProductsService: StaticProductsService,
+  ) {}
 
   ngOnInit(): void {
     this.productForm = this.fb.group({
@@ -25,13 +28,22 @@ export class AddProductComponent implements OnInit {
   }
 
   onSubmit() {
-    // let ID = parseInt(this.);
-    let product :IProduct = {
-
-    }
     if (this.productForm.valid) {
-      const newProduct: IProduct = this.productForm.value;
-      this.StaticProductsService.addProduct(newProduct);
+      let ID = parseInt(this.productForm.value.id);
+      let Price = parseInt(this.productForm.value.price);
+      let StockQuantity = parseInt(this.productForm.value.stockQuantity);
+      let product: IProduct = {
+        id: ID,
+        name: this.productForm.value.name,
+        price: Price,
+        imageUrl: this.productForm.value.imageUrl,
+        category: this.productForm.value.category,
+        stockQuantity: StockQuantity,
+      };
+
+      this.staticProductsService.addProduct(product);
+      this.productForm.reset();
+      alert('Product added successfully!');
     }
   }
 }

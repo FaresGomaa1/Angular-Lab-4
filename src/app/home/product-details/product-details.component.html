@@ -1,1 +1,28 @@
-<p>product-details works!</p>
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <select #selected class="form-select" (change)="getValueOfSelectedOption()">
+          <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <div *ngIf="selectedProduct" class="product-details">
+              <h5 class="card-title">Product Details</h5>
+              <p><strong>Product ID:</strong> {{ selectedProduct.id }}</p>
+              <p><strong>Product Name:</strong> {{ selectedProduct.name }}</p>
+              <p><strong>Image URL:</strong> {{ selectedProduct.imageUrl }}</p>
+              <p><strong>Product Price:</strong> {{ selectedProduct.price }}</p>
+              <p><strong>Stock Quantity:</strong> {{ selectedProduct.stockQuantity }}</p>
+              <p><strong>Category:</strong> {{ selectedProduct.category }}</p>
+            </div>
+            <div *ngIf="!selectedProduct" class="text-muted">Please select a product</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
